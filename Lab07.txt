@@ -1,0 +1,76 @@
+
+package lab07;
+
+public class Point {
+	int x;
+	int y;
+	/*Point(){
+		
+	}*/
+	Point(int x,int y){
+		this.x=x;
+		this.y=y;
+	
+	}
+	double distance(Point p) {
+		
+		double term1= Math.pow((this.x - p.x),2);
+		double term2= Math.pow((this.y - p.y),2);
+		
+		
+		return Math.sqrt(term1 + term2);
+		
+	}
+	public String toString() {
+		
+		return "("+this.x+","+this.y+")";
+		
+		
+	}
+}
+
+
+--------------------------------------------------------------------
+package lab07;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Point p1=new Point(2,5);
+		/*Point p1=new Point();
+		p1.x=6;
+		p1.y=9;*/
+		System.out.println("("+p1.x+","+p1.y+")");
+		System.out.println(p1.toString());
+		System.out.println(p1);
+		Point p2=new Point(3,7);
+		System.out.println(p2);
+		
+		double dist =p1.distance(p2);
+		System.out.println("Distance = "+dist);
+		
+		Line line = new Line(p1,p2);
+		System.out.println(line);
+		
+	}
+
+}
+------------------------------------------------------------------------------------------------
+
+package lab07;
+
+public class Line {
+	Point start;
+	Point end;
+	Line(Point start, Point end){
+		this.start=start;
+		this.end=end;
+	}
+	public String toString() {
+		return start.toString()+"---"+ end.toString();
+		
+		
+	}
+
+}
+
